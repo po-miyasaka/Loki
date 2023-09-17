@@ -36,6 +36,12 @@ struct SakatsuRowView: View {
     }
 }
 
+extension SakatsuRowView: Equatable {
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        lhs.sakatsu == rhs.sakatsu
+    }
+}
+
 // MARK: - Privates
 
 private extension SakatsuRowView {

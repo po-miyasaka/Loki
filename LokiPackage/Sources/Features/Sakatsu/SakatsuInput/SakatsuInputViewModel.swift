@@ -95,7 +95,7 @@ final class SakatsuInputViewModel: ObservableObject {
         case .onSaveButtonClick:
             do {
                 var sakatsus = (try? sakatsuRepository.sakatsus()) ?? []
-                if let index = sakatsus.firstIndex(of: uiState.sakatsu) {
+                if let index = sakatsus.firstIndex(where: { $0.id == uiState.sakatsu.id }) {
                     sakatsus[index] = uiState.sakatsu
                 } else {
                     sakatsus.append(uiState.sakatsu)
